@@ -1,6 +1,7 @@
 {
   "name": "@rundida/mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "mcpName": "io.github.XWeaponX7/rundida-mcp",
   "description": "MCP server for RunDida running tools — marathon data, pace calculations, heart rate zones, and race predictions for AI agents",
   "main": "index.js",
   "type": "module",
