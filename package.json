@@ -1,0 +1,49 @@
+{
+  "name": "@rundida/mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for RunDida running tools — marathon data, pace calculations, heart rate zones, and race predictions for AI agents",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "rundida-mcp": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "running",
+    "marathon",
+    "pace-calculator",
+    "heart-rate-zones",
+    "race-prediction",
+    "vo2max",
+    "ai-tools",
+    "claude",
+    "llm",
+    "fitness"
+  ],
+  "author": "RunDida (https://rundida.com)",
+  "license": "MIT",
+  "homepage": "https://rundida.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XWeaponX7/rundida-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/XWeaponX7/rundida-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.25 || ^4.0"
+  }
+}
