@@ -1,8 +1,12 @@
 # @rundida/mcp-server
 
-MCP server providing 86 running calculators, marathon data, and training tools for AI agents.
+MCP server for [**RunDida**](https://rundida.com) — the world's most comprehensive running tools platform.
 
-Browse running tools, look up marathon events with weather and course data, calculate pace/time/distance, predict race times, and compute heart rate training zones — all from your AI assistant.
+Give your AI assistant access to 86 running calculators, 29 marathon events, pace/time/distance calculations, race time predictions, and heart rate training zones.
+
+[![Website](https://img.shields.io/badge/RunDida.com-86%20Running%20Tools-blue)](https://rundida.com)
+[![npm](https://img.shields.io/npm/v/@rundida/mcp-server)](https://www.npmjs.com/package/@rundida/mcp-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ## Quick Start
 
@@ -42,16 +46,18 @@ Add to your MCP configuration:
 
 ## Available Tools
 
-| Tool | Description |
-|------|-------------|
-| `list_tools` | Browse all 86 running calculators with descriptions |
-| `get_tool` | Get details, FAQs, and sources for a specific tool |
-| `list_marathons` | List upcoming marathon events with dates and locations |
-| `get_marathon` | Get marathon details including weather and course profile |
-| `calculate_pace` | Calculate pace, time, or distance (provide any 2 of 3) |
-| `predict_race` | Predict race times using Riegel formula + VO2max estimation |
-| `heart_rate_zones` | Calculate 5 HR training zones (Karvonen method) |
-| `marathon_countdown` | Get countdown to a specific marathon event |
+| Tool | Type | Description |
+|------|------|-------------|
+| `list_tools` | Data | Browse all [86 running calculators](https://rundida.com) with descriptions |
+| `get_tool` | Data | Get details, FAQs, and sources for a specific tool |
+| `list_marathons` | Data | List [29 marathon events](https://rundida.com/marathon/) with dates and locations |
+| `get_marathon` | Data | Get marathon details including weather and course profile |
+| `calculate_pace` | Compute | Calculate pace, time, or distance (provide any 2 of 3) |
+| `predict_race` | Compute | Predict race times using Riegel formula + VO2max estimation |
+| `heart_rate_zones` | Compute | Calculate 5 HR training zones (Karvonen method) |
+| `marathon_countdown` | Compute | Get countdown to a specific marathon event |
+
+**Data tools** fetch from the [RunDida API](https://rundida.com/api/) with 30-minute caching. **Compute tools** run locally with zero latency — no API calls needed.
 
 ## Example Usage
 
@@ -63,25 +69,41 @@ Ask your AI assistant:
 - "How many days until the Tokyo Marathon?"
 - "Show me all running calculators related to nutrition"
 
+## About RunDida
+
+[**RunDida**](https://rundida.com) (跑滴答) is a free running tools platform for runners of all levels:
+
+- **[86 Interactive Calculators](https://rundida.com)** — Pace, heart rate zones, VO2max, race prediction, nutrition, gear sizing, weather impact, and more
+- **[29 Marathon Countdowns](https://rundida.com/marathon/)** — Live timers with race-day weather forecasts, course profiles, and training tools
+- **[Free JSON API](https://rundida.com/api/)** — No authentication required, CORS enabled, [OpenAPI 3.0 documented](https://rundida.com/api/openapi.json)
+- **Multi-language** — English, Chinese (中文)
+- **Embeddable Widgets** — One-line iframe embed for any calculator
+
+All tools are free, no account required. Try them at [rundida.com](https://rundida.com).
+
 ## How It Works
 
-- **Data tools** (`list_tools`, `get_tool`, `list_marathons`, `get_marathon`) fetch data from the [RunDida API](https://rundida.com/api/) with 30-minute caching.
-- **Calculation tools** (`calculate_pace`, `predict_race`, `heart_rate_zones`) perform all computations locally using established running science formulas:
-  - **Riegel formula** for race time prediction
-  - **Jack Daniels method** for VO2max estimation
-  - **Karvonen method** for heart rate training zones
+The computation tools use established running science formulas:
+
+| Formula | Used In | Description |
+|---------|---------|-------------|
+| **Riegel formula** | `predict_race` | Race time prediction across distances |
+| **Jack Daniels method** | `predict_race` | VO2max estimation from race performance |
+| **Karvonen method** | `heart_rate_zones` | Heart rate training zones from age and resting HR |
 
 ## Requirements
 
 - Node.js >= 18
-- Internet connection (fetches data from rundida.com)
+- Internet connection (data tools fetch from [rundida.com](https://rundida.com))
 
-## Related
+## Links
 
-- [RunDida](https://rundida.com) — 86 interactive running calculators
-- [API Documentation](https://rundida.com/api/) — Free JSON API for running data
-- [OpenAPI Spec](https://rundida.com/api/openapi.json) — Machine-readable API documentation
-- [GitHub](https://github.com/XWeaponX7/rundida-mcp) — Source code
+| Resource | URL |
+|----------|-----|
+| **RunDida Website** | [rundida.com](https://rundida.com) |
+| **API Documentation** | [rundida.com/api](https://rundida.com/api/) |
+| **OpenAPI Spec** | [rundida.com/api/openapi.json](https://rundida.com/api/openapi.json) |
+| **NPM Package** | [@rundida/mcp-server](https://www.npmjs.com/package/@rundida/mcp-server) |
 
 ## License
 
