@@ -111,7 +111,7 @@ function heartRateZones(age, restingHR, maxHR) {
 
 const server = new McpServer({
   name: 'RunDida',
-  version: '1.0.0',
+  version: '1.1.0',
 });
 
 // Tool: list_tools
@@ -158,12 +158,16 @@ server.tool(
     const data = await fetchJSON(`${BASE_URL}/api/marathons.json`);
     const list = data.active
       .sort((a, b) => a.date.localeCompare(b.date))
-      .map(m => `- ${m.name.en} — ${m.date} — ${m.city}`)
+      .map(m => {
+        const tierLabel = m.tier === 1 ? ' ★' : '';
+        const idHint = m.slug || m.id;
+        return `- ${m.name.en}${tierLabel} — ${m.date} — ${m.city} [${idHint}]`;
+      })
       .join('\n');
     return {
       content: [{
         type: 'text',
-        text: `RunDida tracks ${data.meta.totalActive} upcoming marathons:\n\n${list}\n\nUse get_marathon with an ID for details.`,
+        text: `RunDida tracks ${data.meta.totalActive} upcoming marathons:\n\n${list}\n\nUse get_marathon with an ID or slug (e.g. "tokyo", "boston2026") for details.\n★ = World Major / Flagship race`,
       }],
     };
   }
@@ -173,9 +177,16 @@ server.tool(
 server.tool(
   'get_marathon',
   'Get detailed information about a specific marathon including countdown and Schema.org data',
-  { id: z.string().describe('Marathon ID, e.g. "tokyo2026", "boston2026", "berlin2026"') },
+  { id: z.string().describe('Marathon ID or slug, e.g. "tokyo", "boston", "berlin2026", "kobe2026"') },
   async ({ id }) => {
-    const data = await fetchJSON(`${BASE_URL}/api/marathons/${id}.json`);
+    let data;
+    try {
+      data = await fetchJSON(`${BASE_URL}/api/marathons/${id}.json`);
+    } catch {
+      // Fallback: try slug without year for Tier 1 marathons
+      const slug = id.replace(/\d{4}$/, '');
+      data = await fetchJSON(`${BASE_URL}/api/marathons/${slug}.json`);
+    }
     const m = data.marathon;
     const raceDate = new Date(m.date);
     const now = new Date();
@@ -313,9 +324,15 @@ server.tool(
 server.tool(
   'marathon_countdown',
   'Get a countdown to a specific marathon event',
-  { id: z.string().describe('Marathon ID, e.g. "tokyo2026", "boston2026"') },
+  { id: z.string().describe('Marathon ID or slug, e.g. "tokyo", "boston", "kobe2026"') },
   async ({ id }) => {
-    const data = await fetchJSON(`${BASE_URL}/api/marathons/${id}.json`);
+    let data;
+    try {
+      data = await fetchJSON(`${BASE_URL}/api/marathons/${id}.json`);
+    } catch {
+      const slug = id.replace(/\d{4}$/, '');
+      data = await fetchJSON(`${BASE_URL}/api/marathons/${slug}.json`);
+    }
     const m = data.marathon;
     const raceDate = new Date(m.date + 'T00:00:00');
     const now = new Date();
