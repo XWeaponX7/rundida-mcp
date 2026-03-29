@@ -8,6 +8,8 @@ Give your AI assistant access to 86 running calculators, 29 marathon events, pac
 [![npm](https://img.shields.io/npm/v/@rundida/mcp-server)](https://www.npmjs.com/package/@rundida/mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+[![rundida-mcp MCP server](https://glama.ai/mcp/servers/XWeaponX7/rundida-mcp/badges/card.svg)](https://glama.ai/mcp/servers/XWeaponX7/rundida-mcp)
+
 ## Quick Start
 
 ### Claude Desktop
