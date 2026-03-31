@@ -2,9 +2,9 @@
 
 MCP server for [**RunDida**](https://rundida.com) — the world's most comprehensive running tools platform.
 
-Give your AI assistant access to 86 running calculators, 29 marathon events, pace/time/distance calculations, race time predictions, and heart rate training zones.
+Give your AI assistant access to 90+ running calculators, 29 marathon events, pace/time/distance calculations, race time predictions, and heart rate training zones.
 
-[![Website](https://img.shields.io/badge/RunDida.com-86%20Running%20Tools-blue)](https://rundida.com)
+[![Website](https://img.shields.io/badge/RunDida.com-90%2B%20Running%20Tools-blue)](https://rundida.com)
 [![npm](https://img.shields.io/npm/v/@rundida/mcp-server)](https://www.npmjs.com/package/@rundida/mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -48,7 +48,7 @@ Add to your MCP configuration:
 
 | Tool | Type | Description |
 |------|------|-------------|
-| `list_tools` | Data | Browse all [86 running calculators](https://rundida.com) with descriptions |
+| `list_tools` | Data | Browse all [90+ running calculators](https://rundida.com) with descriptions |
 | `get_tool` | Data | Get details, FAQs, and sources for a specific tool |
 | `list_marathons` | Data | List [29 marathon events](https://rundida.com/marathon/) with dates and locations |
 | `get_marathon` | Data | Get marathon details including weather and course profile |
@@ -73,7 +73,7 @@ Ask your AI assistant:
 
 [**RunDida**](https://rundida.com) (跑滴答) is a free running tools platform for runners of all levels:
 
-- **[86 Interactive Calculators](https://rundida.com)** — Pace, heart rate zones, VO2max, race prediction, nutrition, gear sizing, weather impact, and more
+- **[90+ Interactive Calculators](https://rundida.com)** — Pace, heart rate zones, VO2max, race prediction, nutrition, gear sizing, weather impact, and more
 - **[29 Marathon Countdowns](https://rundida.com/marathon/)** — Live timers with race-day weather forecasts, course profiles, and training tools
 - **[Free JSON API](https://rundida.com/api/)** — No authentication required, CORS enabled, [OpenAPI 3.0 documented](https://rundida.com/api/openapi.json)
 - **Multi-language** — English, Chinese (中文)
