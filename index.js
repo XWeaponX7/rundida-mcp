@@ -111,7 +111,7 @@ function heartRateZones(age, restingHR, maxHR) {
 
 const server = new McpServer({
   name: 'RunDida',
-  version: '1.1.0',
+  version: '1.2.0',
 });
 
 // Tool: list_tools
@@ -349,6 +349,42 @@ server.tool(
     text += `${days} days, ${hours} hours until race day\n`;
     text += `Date: ${m.date}\nCity: ${m.city}\n`;
     text += `\nLive countdown: ${m.links.countdown}`;
+    return { content: [{ type: 'text', text }] };
+  }
+);
+
+// Tool: list_guides
+server.tool(
+  'list_guides',
+  'List all running guides and educational articles on RunDida',
+  {},
+  async () => {
+    const data = await fetchJSON(`${BASE_URL}/api/guides.json`);
+    const list = data.guides.map(g => `- ${g.title} [${g.slug}] (${g.category}): ${g.description.slice(0, 100)}...`).join('\n');
+    return {
+      content: [{
+        type: 'text',
+        text: `RunDida has ${data.meta.total} running guides:\n\n${list}\n\nUse get_guide with a slug to see full details including FAQs.`,
+      }],
+    };
+  }
+);
+
+// Tool: get_guide
+server.tool(
+  'get_guide',
+  'Get detailed information about a specific running guide including FAQs and related tools',
+  { slug: z.string().describe('Guide slug, e.g. "first-marathon-training", "couch-to-5k-complete-guide"') },
+  async ({ slug }) => {
+    const data = await fetchJSON(`${BASE_URL}/api/guides/${slug}.json`);
+    const g = data.guide;
+    let text = `## ${g.title}\n\n${g.description}\n\nURL: ${g.url}\nCategory: ${g.category}\n`;
+    if (g.relatedTools.length) text += `\nRelated tools: ${g.relatedTools.join(', ')}`;
+    if (g.faqs && g.faqs.length) {
+      text += '\n\n### FAQs\n';
+      g.faqs.forEach(f => { text += `\n**Q: ${f.question}**\nA: ${f.answer}\n`; });
+    }
+    text += `\nAvailable in: EN (${g.links.page}), ZH (${g.links.pageZh}), JA (${g.links.pageJa})`;
     return { content: [{ type: 'text', text }] };
   }
 );

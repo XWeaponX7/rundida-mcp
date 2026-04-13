@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.XWeaponX7/rundida-mcp",
-  "description": "Running tools for AI agents: 90+ calculators, marathon data, pace and HR zones.",
+  "description": "Running tools for AI agents: 92 calculators, 46 guides, marathon data, pace and HR zones.",
   "repository": {
     "url": "https://github.com/XWeaponX7/rundida-mcp",
     "source": "github"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@rundida/mcp-server",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "transport": {
         "type": "stdio"
       }

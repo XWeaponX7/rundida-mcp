@@ -2,9 +2,9 @@
 
 MCP server for [**RunDida**](https://rundida.com) — the world's most comprehensive running tools platform.
 
-Give your AI assistant access to 90+ running calculators, 29 marathon events, pace/time/distance calculations, race time predictions, and heart rate training zones.
+Give your AI assistant access to 92 running calculators, 46 training guides, 44+ marathon events, pace/time/distance calculations, race time predictions, and heart rate training zones.
 
-[![Website](https://img.shields.io/badge/RunDida.com-90%2B%20Running%20Tools-blue)](https://rundida.com)
+[![Website](https://img.shields.io/badge/RunDida.com-92%20Running%20Tools-blue)](https://rundida.com)
 [![npm](https://img.shields.io/npm/v/@rundida/mcp-server)](https://www.npmjs.com/package/@rundida/mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -48,9 +48,11 @@ Add to your MCP configuration:
 
 | Tool | Type | Description |
 |------|------|-------------|
-| `list_tools` | Data | Browse all [90+ running calculators](https://rundida.com) with descriptions |
+| `list_tools` | Data | Browse all [92 running calculators](https://rundida.com) with descriptions |
 | `get_tool` | Data | Get details, FAQs, and sources for a specific tool |
-| `list_marathons` | Data | List [29 marathon events](https://rundida.com/marathon/) with dates and locations |
+| `list_guides` | Data | Browse all [46 running guides](https://rundida.com/guide/) with descriptions |
+| `get_guide` | Data | Get guide details, FAQs, and related tools |
+| `list_marathons` | Data | List [44+ marathon events](https://rundida.com/marathon/) with dates and locations |
 | `get_marathon` | Data | Get marathon details including weather and course profile |
 | `calculate_pace` | Compute | Calculate pace, time, or distance (provide any 2 of 3) |
 | `predict_race` | Compute | Predict race times using Riegel formula + VO2max estimation |
@@ -68,6 +70,8 @@ Ask your AI assistant:
 - "What are my heart rate zones? I'm 32 with a resting HR of 52"
 - "How many days until the Tokyo Marathon?"
 - "Show me all running calculators related to nutrition"
+- "What running guides do you have about marathon training?"
+- "Tell me about the couch to 5K guide"
 
 ## About RunDida
 
