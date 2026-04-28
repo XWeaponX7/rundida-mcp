@@ -111,7 +111,7 @@ function heartRateZones(age, restingHR, maxHR) {
 
 const server = new McpServer({
   name: 'RunDida',
-  version: '1.2.0',
+  version: '1.2.1',
 });
 
 // Tool: list_tools
