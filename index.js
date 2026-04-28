@@ -334,7 +334,7 @@ server.tool(
       data = await fetchJSON(`${BASE_URL}/api/marathons/${slug}.json`);
     }
     const m = data.marathon;
-    const raceDate = new Date(m.date + 'T00:00:00');
+    const raceDate = new Date(m.date);
     const now = new Date();
     const diff = raceDate - now;
 
