@@ -1,6 +1,6 @@
 # RunDida MCP Server
 
-MCP server for [RunDida](https://rundida.com) — 10 tools providing AI agents access to 92 running calculators, 46 guides, and 44+ marathon events.
+MCP server for [RunDida](https://rundida.com) — 10 tools providing AI agents access to 99 running calculators, 56 guides, and 300+ marathon events.（数字随主站漂移：发版前用主站 `_site/api/*.json` 现拉刷新此处 + README + package.json + server.json 四处；marathons 一律写「300+」量级不写精确数——外部 desc 写死精确数必然陈旧，92/46/44 旧文案曾扩散全网 MCP 目录。）
 
 ## Architecture
 

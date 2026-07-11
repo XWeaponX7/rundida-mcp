@@ -1,10 +1,10 @@
 # @rundida/mcp-server
 
-MCP server for [**RunDida**](https://rundida.com) — the world's most comprehensive running tools platform.
+MCP server for [**RunDida**](https://rundida.com) — running expertise for AI agents.
 
-Give your AI assistant access to 92 running calculators, 46 training guides, 44+ marathon events, pace/time/distance calculations, race time predictions, and heart rate training zones.
+Ten tools that let Claude, Cursor or any MCP client **compute paces, heart-rate zones, race predictions and marathon countdowns live**, and **query RunDida's full library**: 99 running calculators, 56 training guides and 300+ marathon events (course, weather and registration data) — in English, Chinese and Japanese. Free, zero-config, no API key.
 
-[![Website](https://img.shields.io/badge/RunDida.com-92%20Running%20Tools-blue)](https://rundida.com)
+[![Website](https://img.shields.io/badge/RunDida.com-99%20Running%20Tools-blue)](https://rundida.com)
 [![npm](https://img.shields.io/npm/v/@rundida/mcp-server)](https://www.npmjs.com/package/@rundida/mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -48,11 +48,11 @@ Add to your MCP configuration:
 
 | Tool | Type | Description |
 |------|------|-------------|
-| `list_tools` | Data | Browse all [92 running calculators](https://rundida.com) with descriptions |
+| `list_tools` | Data | Browse all [99 running calculators](https://rundida.com) with descriptions |
 | `get_tool` | Data | Get details, FAQs, and sources for a specific tool |
 | `list_guides` | Data | Browse all [46 running guides](https://rundida.com/guide/) with descriptions |
 | `get_guide` | Data | Get guide details, FAQs, and related tools |
-| `list_marathons` | Data | List [44+ marathon events](https://rundida.com/marathon/) with dates and locations |
+| `list_marathons` | Data | List [300+ marathon events](https://rundida.com/marathon/) with dates and locations |
 | `get_marathon` | Data | Get marathon details including weather and course profile |
 | `calculate_pace` | Compute | Calculate pace, time, or distance (provide any 2 of 3) |
 | `predict_race` | Compute | Predict race times using Riegel formula + VO2max estimation |
